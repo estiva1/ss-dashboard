@@ -304,12 +304,6 @@ export const SliderText = styled(Typography)`
   cursor: pointer;
 `;
 
-export const ChartContainer = styled(Box)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const TimeFilterButton = styled(Button)`
   color: ${(props) => (props.isPressed ? "#000" : "#c4c4c4")} !important;
   padding-top: 0px !important;
@@ -332,7 +326,34 @@ export const DatePickerButton = styled(Box)`
 
 export const SpanText = styled(Typography)`
   color: ${(props) => props.color || "#4e5969"} !important;
-  font-size: 0.625rem !important;
+  font-size: 0.6875rem !important;
   font-weight: 600 !important;
-  line-height: 0.625rem !important;
+  line-height: 0.6875rem !important;
+`;
+
+export const ChartLegendValueText = styled(Typography)`
+  margin-left: 14px !important;
+  margin-bottom: ${(props) => props.gap || "22px"} !important;
+  color: #000 !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1rem !important;
+
+`;
+
+//------------------------
+
+export const ChartHeader = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  height: 15%;
+`;
+
+export const ChartBody = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  align-items: start;
+  gap: 10px;
 `;
