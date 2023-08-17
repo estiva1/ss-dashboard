@@ -4,16 +4,15 @@ import { styled } from "styled-components";
 export const PageTitle = styled(Typography)`
   color: #000 !important;
   margin-left: 32px !important;
-  /* H1 */
   font-size: 2rem !important;
-  //font-family: Titillium Web;
+  font-family: Titillium Web !important;
   font-weight: 700 !important;
   line-height: 3.0625rem !important;
 `;
 
 export const SubTitle = styled(Typography)`
   color: #000 !important;
-  /* Heading 02 */
+  font-family: Titillium Web !important;
   font-size: 1.5rem !important;
   font-weight: 700 !important;
   line-height: 1.5rem !important;
@@ -32,8 +31,7 @@ export const StatCard = styled(Paper)`
   min-height: 100px;
   width: 100%;
   border-radius: 16px !important;
-  background: ${({ value }) =>
-    value >= 0 ? "#E8F1EB" : value < 0 ? "#FCF2F2" : ""} !important;
+  background: ${({ value }) => (value >= 0 ? "#E8F1EB" : value < 0 ? "#FCF2F2" : "")} !important;
   box-shadow: ${({ expanded }) =>
     expanded
       ? "inset 0px 0px 0px 2px #1565d8"
@@ -45,9 +43,7 @@ export const StatCard = styled(Paper)`
 
   &:hover {
     box-shadow: ${({ expanded }) =>
-      expanded
-        ? "inset 0px 0px 0px 2px #1565d8"
-        : "inset 0px 0px 0px 1px #1565d8"} !important;
+      expanded ? "inset 0px 0px 0px 2px #1565d8" : "inset 0px 0px 0px 1px #1565d8"} !important;
     -webkit-transition: all 0.25s ease-out;
     -moz-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
@@ -59,8 +55,7 @@ export const StatCardEnlargeable = styled(Paper)`
   min-height: 100px;
   width: 100%;
   border-radius: 16px !important;
-  background: ${({ value }) =>
-    value >= 0 ? "#E8F1EB" : value < 0 ? "#FCF2F2" : ""} !important;
+  background: ${({ value }) => (value >= 0 ? "#E8F1EB" : value < 0 ? "#FCF2F2" : "")} !important;
   box-shadow: ${({ expanded }) =>
     expanded
       ? "inset 0px 0px 0px 2px #1565d8"
@@ -72,9 +67,7 @@ export const StatCardEnlargeable = styled(Paper)`
 
   &:hover {
     box-shadow: ${({ expanded }) =>
-      expanded
-        ? "inset 0px 0px 0px 2px #1565d8"
-        : "inset 0px 0px 0px 1px #1565d8"} !important;
+      expanded ? "inset 0px 0px 0px 2px #1565d8" : "inset 0px 0px 0px 1px #1565d8"} !important;
     -webkit-transition: all 0.25s ease-out;
     -moz-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
@@ -97,6 +90,7 @@ export const StatCardContentBox = styled(Box)`
 
 export const StatCardLabel = styled(Typography)`
   color: ${(props) => props.color || "#4e5969"} !important;
+  font-family: Titillium Web !important;
   font-size: 0.75rem !important;
   font-weight: 600 !important;
   line-height: 1rem !important;
@@ -107,6 +101,7 @@ export const StatCardLabel = styled(Typography)`
 
 export const StatCardLabelBig = styled(Typography)`
   color: ${(props) => props.color || "#4e5969"} !important;
+  font-family: Titillium Web !important;
   font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1rem !important;
@@ -133,8 +128,8 @@ export const StatCardBody = styled(Box)`
 `;
 
 export const StatCardMainValue = styled(Typography)`
-  color: ${({ value }) =>
-    value > 0 ? "#009C34" : value < 0 ? "#CF0909" : ""} !important;
+  color: ${({ value }) => (value > 0 ? "#009C34" : value < 0 ? "#CF0909" : "")} !important;
+  font-family: Titillium Web !important;
   font-size: 2rem !important;
   font-weight: 700 !important;
   line-height: 2.5rem !important;
@@ -142,6 +137,7 @@ export const StatCardMainValue = styled(Typography)`
 
 export const StatCardMainValueSmall = styled(Typography)`
   color: ${(props) => props.color || "#000"} !important;
+  font-family: Titillium Web !important;
   font-size: 1.5rem !important;
   font-weight: 700 !important;
   line-height: 1.875rem !important;
@@ -152,10 +148,8 @@ export const StatCardDifferenceValue = styled(Chip)`
   font-weight: 600 !important;
   line-height: 0.75rem !important;
   padding: 8px 12px !important;
-  background-color: ${({ value }) =>
-    value > 0 ? "#C9E8D5" : value < 0 ? "#F8DBDB" : ""} !important;
-  color: ${({ value }) =>
-    value > 0 ? "#009C34" : value < 0 ? "#CF0909" : ""} !important;
+  background-color: ${({ value }) => (value > 0 ? "#C9E8D5" : value < 0 ? "#F8DBDB" : "")} !important;
+  color: ${({ value }) => (value > 0 ? "#009C34" : value < 0 ? "#CF0909" : "")} !important;
   -webkit-transition: all 0.25s ease-out !important;
   -moz-transition: all 0.25s ease-out !important;
   -o-transition: all 0.25s ease-out !important;
@@ -170,6 +164,7 @@ export const StatCardCollapseContainer = styled(Box)`
 
 export const CollapseContainerLabelText = styled(Typography)`
   color: #979797 !important;
+  font-family: Titillium Web !important;
   font-weight: 600 !important;
   font-size: 0.625rem !important;
   line-height: 0.625rem !important;
@@ -177,6 +172,7 @@ export const CollapseContainerLabelText = styled(Typography)`
 
 export const SecondaryText = styled(Typography)`
   color: ${(props) => props.color || "#4e5969"} !important;
+  font-family: Titillium Web !important;
   font-size: 0.875rem !important;
   font-weight: 700 !important;
   line-height: 1rem !important;
@@ -198,6 +194,7 @@ export const InfotainmentCard = styled(Paper)`
 
 export const CardLabelText = styled(Typography)`
   color: #6fd5f6;
+  font-family: Titillium Web !important;
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1rem;
@@ -244,14 +241,15 @@ export const SecondaryButton = styled(Button)`
 
 export const DescriptionText = styled(Typography)`
   margin: auto;
+  font-family: Titillium Web !important;
   font-size: 1rem !important;
   color: #4e5969 !important;
 `;
 
 export const AssignItemSpanText = styled(Typography)`
   font-size: 0.75rem !important;
-  color: ${({ profit }) =>
-    profit > 0 ? "#009C34" : profit < 0 ? "#CF0909" : "#4e5969"} !important;
+  color: ${({ profit }) => (profit > 0 ? "#009C34" : profit < 0 ? "#CF0909" : "#4e5969")} !important;
+  font-family: Titillium Web !important;
   line-height: 18px !important;
 `;
 //-------------------------------
@@ -286,8 +284,7 @@ export const StyledSlider = styled.span`
     background-color: ${(props) => (props.isOn ? "#fff" : "#C4C4C4")};
     transition: 0.4s ease;
     border-radius: 50%;
-    transform: ${(props) =>
-      props.isOn ? "translateX(86px)" : "translateX(0)"};
+    transform: ${(props) => (props.isOn ? "translateX(86px)" : "translateX(0)")};
   }
 `;
 
@@ -297,6 +294,7 @@ export const SliderText = styled(Typography)`
   transform: translateY(-50%);
   margin-left: ${(props) => (props.isOn ? "12px" : "28px")} !important;
   color: ${(props) => (props.isOn ? "#fff" : "#C4C4C4")};
+  font-family: Titillium Web !important;
   font-size: 0.75rem !important;
   font-weight: 600 !important;
   line-height: 1rem !important;
@@ -326,6 +324,7 @@ export const DatePickerButton = styled(Box)`
 
 export const SpanText = styled(Typography)`
   color: ${(props) => props.color || "#4e5969"} !important;
+  font-family: Titillium Web !important;
   font-size: 0.6875rem !important;
   font-weight: 600 !important;
   line-height: 0.6875rem !important;
@@ -334,11 +333,11 @@ export const SpanText = styled(Typography)`
 export const ChartLegendValueText = styled(Typography)`
   margin-left: 14px !important;
   margin-bottom: ${(props) => props.gap || "22px"} !important;
+  font-family: Titillium Web !important;
   color: #000 !important;
   font-size: 0.875rem !important;
   font-weight: 700 !important;
   line-height: 1rem !important;
-
 `;
 
 //------------------------
@@ -352,6 +351,7 @@ export const ChartHeader = styled(Box)`
 export const ChartBody = styled(Box)`
   display: flex;
   flex-direction: row;
+  font-size: 1rem !important;
   height: 100%;
   width: 100%;
   align-items: start;
