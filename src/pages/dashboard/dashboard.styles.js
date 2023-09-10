@@ -1,27 +1,33 @@
-import { Box, Button, Chip, Paper, Typography } from "@mui/material";
 import { styled } from "styled-components";
+import { Box, Button, Chip, Paper, Typography } from "@mui/material";
 
-export const PageTitle = styled(Typography)`
-  color: #000 !important;
-  margin-left: 32px !important;
-  font-size: 2rem !important;
-  font-family: Titillium Web !important;
-  font-weight: 700 !important;
-  line-height: 3.0625rem !important;
+export const DashboardHeader = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 8px;
 `;
 
-export const SubTitle = styled(Typography)`
-  color: #000 !important;
-  font-family: Titillium Web !important;
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
-  line-height: 1.5rem !important;
+export const PageTitle = styled.h2`
+  color: #000;
+  margin-left: 32px;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3.0625rem;
+  margin: 0;
+`;
+
+export const SubTitle = styled.h3`
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  margin: 0;
 `;
 
 export const DashboardContainer = styled(Box)`
-  display: flex;
-  min-height: 300px;
-  margin: 16px;
   padding: 24px 16px;
   border-radius: 20px;
   background: #f8fafb;
@@ -108,16 +114,6 @@ export const StatCardLabelBig = styled(Typography)`
   letter-spacing: 0.005rem !important;
   text-overflow: ellipsis;
   overflow: hidden;
-`;
-
-export const StatCardImage = styled(Box)`
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  background-color: #fff;
-  padding: 8px;
-  border-radius: 50% !important;
 `;
 
 export const StatCardBody = styled(Box)`
@@ -240,7 +236,7 @@ export const SecondaryButton = styled(Button)`
 `;
 
 export const DescriptionText = styled(Typography)`
-  margin: auto;
+  margin: 0;
   font-family: Titillium Web !important;
   font-size: 1rem !important;
   color: #4e5969 !important;

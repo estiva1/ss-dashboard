@@ -1,5 +1,3 @@
-//This is mock data
-
 //for Sales Comparison Overview
 export const dataSco = [
   {
