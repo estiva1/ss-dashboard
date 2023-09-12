@@ -67,9 +67,9 @@ export const Ripple = ({ duration = 850, color = "#fff" }) => {
   );
 };
 
-const DashboardButton = ({ buttonText, buttonImage, textIcon, gapless, handleClick }) => {
+const DashboardButton = ({ buttonText, buttonImage, textIcon, gapless, onClick }) => {
   return (
-    <DashboardButtonContainer gapless={gapless} onClick={handleClick}>
+    <DashboardButtonContainer gapless={gapless} onClick={onClick}>
       <Stack direction="row" gap="10px" alignItems="center">
         <ButtonContent gapless={gapless}>
           {buttonImage && <ButtonImage src={buttonImage} style={{ width: "24px", height: "24px" }} />}

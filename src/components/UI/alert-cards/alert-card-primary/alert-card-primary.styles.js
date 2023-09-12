@@ -7,6 +7,7 @@ export const AlertCardPrimaryBody = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 220px;
   height: 100%;
   width: 100%;
   padding: 20px;
@@ -59,6 +60,7 @@ export const ResolveButton = styled(Button)`
   font-weight: 700 !important;
   line-height: 1rem !important;
   letter-spacing: 0.01625rem !important;
+  z-index: 5;
 `;
 
 export const DismissButton = styled(Button)`
@@ -72,4 +74,5 @@ export const DismissButton = styled(Button)`
   font-weight: 700 !important;
   line-height: 1rem !important;
   letter-spacing: 0.01625rem !important;
+  z-index: 5;
 `;

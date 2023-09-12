@@ -7,10 +7,10 @@ const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const FullScreenDialog = ({ open, onClose, children }) => {
+const FullScreenDialog = ({ open, onClose }) => {
   return (
     <Dialog fullScreen open={open} onClose={onClose} TransitionComponent={Transition}>
-      {children}
+      1
     </Dialog>
   );
 };
