@@ -22,7 +22,27 @@ import {
 } from "./recent-activity-table.styles";
 import CustomizedProgressBar from "../progress-bar/progress-bar.component";
 
-const RecentActivityTable = ({ data }) => {
+const generateHighlightedText = (text, filterValue) => {
+  const lowerText = text.toLowerCase();
+  const lowerFilterValue = filterValue.toLowerCase();
+
+  if (!lowerText.includes(lowerFilterValue)) {
+    return text;
+  }
+
+  const startIndex = lowerText.indexOf(lowerFilterValue);
+  const endIndex = startIndex + lowerFilterValue.length;
+
+  return (
+    <>
+      {text.substring(0, startIndex)}
+      <span style={{ backgroundColor: "#1565D8", color: "#fff" }}>{text.substring(startIndex, endIndex)}</span>
+      {text.substring(endIndex)}
+    </>
+  );
+};
+
+const RecentActivityTable = ({ data, itemFilter, selectedStatus }) => {
   const recentActivityItems = data.map(({ id, itemName, sellersSku, sku, changeDate, status, price, changeReason }) => {
     const { date, time } = changeDate || {};
     const { currentPrice, newPrice } = price || {};
@@ -40,6 +60,11 @@ const RecentActivityTable = ({ data }) => {
       changeReason,
     };
   });
+
+  const filteredData = selectedStatus
+    ? recentActivityItems.filter((item) => item.status.toLowerCase() === selectedStatus)
+    : recentActivityItems;
+
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -51,13 +76,19 @@ const RecentActivityTable = ({ data }) => {
     setPage(0);
   };
 
+  const matchingData = filteredData.filter((item) => {
+    const itemNameMatch = item.itemName.toLowerCase().includes(itemFilter);
+    const skuMatch = item.sku.toLowerCase().includes(itemFilter);
+    return itemNameMatch || skuMatch;
+  });
+
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
 
   return (
     <Box sx={{ width: "100%" }}>
       <TableContainer>
-        <Table sx={{ minWidth: 750 }} aria-labelledby="recentActivityTable">
+        <Table sx={{ minWidth: 800 }} aria-labelledby="recentActivityTable">
           <TableHead>
             <TableRow>
               <StyledTableCell align="left">Changed At</StyledTableCell>
@@ -69,7 +100,7 @@ const RecentActivityTable = ({ data }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {recentActivityItems
+            {matchingData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map(({ id, itemName, sellersSku, sku, date, time, status, currentPrice, newPrice, changeReason }) => (
                 <StyledTableRow key={`item-${id}`}>
@@ -84,7 +115,7 @@ const RecentActivityTable = ({ data }) => {
                       <ItemImage src={testProductImage} style={{ width: "34px", height: "34px" }} loading="lazy" />
                       <Stack direction="column" gap="8px">
                         <Tooltip title={itemName} placement="top">
-                          <PrimaryTextHighlighted clamp>{itemName}</PrimaryTextHighlighted>
+                          <PrimaryTextHighlighted clamp>{generateHighlightedText(itemName, itemFilter)}</PrimaryTextHighlighted>
                         </Tooltip>
 
                         <Stack direction="row">
@@ -99,12 +130,14 @@ const RecentActivityTable = ({ data }) => {
                     </Stack>
                   </StyledTableCell>
                   <StyledTableCell>
-                    <PrimaryText>{sku}</PrimaryText>
+                    <PrimaryText>{generateHighlightedText(sku, itemFilter)}</PrimaryText>
                   </StyledTableCell>
                   <StyledTableCell>
                     <Stack direction="column" gap="6px">
                       <CustomizedProgressBar status={status.toLowerCase()} />
-                      <SecondaryText style={{ color: "#979797", textTransform: "capitalize" }}>{status}</SecondaryText>
+                      <SecondaryText style={{ color: "#979797", textTransform: "capitalize", alignSelf: "center" }}>
+                        {status}
+                      </SecondaryText>
                     </Stack>
                   </StyledTableCell>
                   <StyledTableCell>
@@ -152,7 +185,7 @@ const RecentActivityTable = ({ data }) => {
             {emptyRows > 0 && (
               <StyledTableRow
                 sx={{
-                  height: 42 * emptyRows,
+                  height: 83 * emptyRows, //the most heightish cell - with prices (5.1875rem)
                 }}
               >
                 <StyledTableCell colSpan={6} />
@@ -164,7 +197,7 @@ const RecentActivityTable = ({ data }) => {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={recentActivityItems.length}
+        count={matchingData.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

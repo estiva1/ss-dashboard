@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import { Stack } from "@mui/material";
 import Slide from "@mui/material/Slide";
@@ -10,13 +10,20 @@ import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceR
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
 import Dropdown from "../UI/dropdown/dropdown.component";
 import RecentActivityTable from "../UI/recent-activity-table/recent-activity-table.component";
-import { recentActivityData, trackingInfoData } from "../../constants";
+import { recentActivityData } from "../../constants";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 const FullScreenDialog = ({ open, onClose }) => {
+  const [itemFilter, setItemFilter] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState(null);
+  const dropdownTestOptions = ["success", "pending", "error"];
+
+  const handleItemFilterChange = (event) => setItemFilter(event.target.value);
+
+
   return (
     <Dialog fullScreen open={open} onClose={onClose} TransitionComponent={Transition}>
       <Container>
@@ -30,13 +37,25 @@ const FullScreenDialog = ({ open, onClose }) => {
         <Content>
           <Stack direction="row" spacing="10px" alignItems="center">
             <div style={{ width: "300px" }}>
-              <CustomizedSearchField placeholder="Search by SKU, Title, ASIN" />
+              <CustomizedSearchField
+                placeholder="Search by SKU, Title, ASIN"
+                value={itemFilter}
+                onChange={handleItemFilterChange}
+              />
             </div>
             <div style={{ width: "200px" }}>
-              <Dropdown placeholder="Filter by Status" disabled />
+              <Dropdown
+                placeholder="Filter by Status"
+                data={dropdownTestOptions}
+                setSelectedValue={setSelectedStatus}
+              />
             </div>
           </Stack>
-          <RecentActivityTable data={recentActivityData}/>
+          <RecentActivityTable
+            data={recentActivityData}
+            itemFilter={itemFilter}
+            selectedStatus={selectedStatus}
+          />
         </Content>
       </Container>
     </Dialog>

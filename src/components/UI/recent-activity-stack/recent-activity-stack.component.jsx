@@ -11,29 +11,31 @@ import {
   PrimaryTextHighlighted,
   RecentActivityStackBody,
   RecentItemContainer,
-  SecondaryText,
   SmallText,
 } from "./recent-activity-stack.styles";
 import DashboardButton from "../dashboard-button/dashboard-button.component";
 
 const RecentActivityStack = ({ data, setOpen }) => {
-  const recentActivityItems = data.map(({ id, itemName, sellersSku, sku, changeDate, status, price, changeReason }) => {
-    const { date, time } = changeDate;
-    const { currentPrice, newPrice } = price;
+  const recentActivityItems = data
+    .map(({ id, itemName, sellersSku, sku, changeDate, status, price, changeReason }) => {
+      const { date, time } = changeDate;
+      const { currentPrice, newPrice } = price;
 
-    return {
-      id,
-      itemName,
-      sellersSku,
-      sku,
-      date,
-      time,
-      status,
-      currentPrice,
-      newPrice,
-      changeReason,
-    };
-  });
+      return {
+        id,
+        itemName,
+        sellersSku,
+        sku,
+        date,
+        time,
+        status,
+        currentPrice,
+        newPrice,
+        changeReason,
+      };
+    })
+    .slice(0, 5);
+
   return (
     <RecentActivityStackBody>
       <Stack direction="column" gap="24px">

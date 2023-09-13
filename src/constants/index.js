@@ -55,7 +55,7 @@ export const recentActivityData = [
     id: 1,
     itemName: "Bubba 24 Oz Envy Chocolate Bubba 24 Oz Envy Chocolate",
     sellersSku: "SKU-WM-24566712345-24566712345",
-    sku: "24",
+    sku: "SKU-WM-24566712345",
     changeDate: {
       date: "23 Dec, 2022",
       time: "02:36:06",
@@ -71,7 +71,7 @@ export const recentActivityData = [
     id: 2,
     itemName: "Bubba 24 Oz Envy Chocolate",
     sellersSku: "SKU-WM-24566712345",
-    sku: "24",
+    sku: "SKU-WM-24566712345",
     changeDate: {
       date: "23 Dec, 2022",
       time: "02:36:06",
@@ -87,7 +87,7 @@ export const recentActivityData = [
     id: 3,
     itemName: "Bubba 24 Oz Envy Chocolate",
     sellersSku: "SKU-WM-24566712345",
-    sku: "24",
+    sku: "SKU-WM-24566712345",
     changeDate: {
       date: "23 Dec, 2022",
       time: "02:36:06",
@@ -103,7 +103,7 @@ export const recentActivityData = [
     id: 4,
     itemName: "Bubba 24 Oz Envy Chocolate",
     sellersSku: "SKU-WM-24566712345",
-    sku: "24",
+    sku: "SKU-WM-24566712345",
     changeDate: {
       date: "23 Dec, 2022",
       time: "02:36:06",
@@ -119,7 +119,7 @@ export const recentActivityData = [
     id: 5,
     itemName: "Bubba 24 Oz Envy Chocolate",
     sellersSku: "SKU-WM-24566712345",
-    sku: "24",
+    sku: "SKU-WM-24566712345",
     changeDate: {
       date: "23 Dec, 2022",
       time: "02:36:06",
@@ -135,7 +135,7 @@ export const recentActivityData = [
     id: 6,
     itemName: "Bubba 24 Oz Envy Chocolate",
     sellersSku: "SKU-WM-24566712345",
-    sku: "24",
+    sku: "SKU-WM-24566712345",
     changeDate: {
       date: "23 Dec, 2022",
       time: "02:36:06",
@@ -144,6 +144,22 @@ export const recentActivityData = [
     price: {
       currentPrice: "58.10",
       newPrice: "59.15",
+    },
+    changeReason: "Lorem Ipsum",
+  },
+  {
+    id: 7,
+    itemName: "Bubba 24 Oz Envy Chocolate",
+    sellersSku: "SKU-WM-24566712345",
+    sku: "SKU-WM-24566712345",
+    changeDate: {
+      date: "23 Dec, 2022",
+      time: "02:36:06",
+    },
+    status: "success",
+    price: {
+      currentPrice: "58.10",
+      newPrice: "58.10",
     },
     changeReason: "Lorem Ipsum",
   },
