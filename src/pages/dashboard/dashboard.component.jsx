@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-import { DashboardContainer, DashboardHeader, PageTitle, SubTitle } from "./dashboard.styles";
+import React, { useState } from "react";
 
 import { Grid, Stack, Zoom } from "@mui/material";
 
@@ -10,15 +8,17 @@ import settings from "../../assets/settings-outlined.png";
 import threeCubes from "../../assets/three-cubes-outlined.png";
 import threeCubesWhite from "../../assets/three-cubes-outlined-white.png";
 
-import InfoCard from "../../components/UI/info-cards/info-card-static/info-card-static.component";
-import InfoCardExpandable from "../../components/UI/info-cards/info-card-expandable/info-card-expandable.component";
-import DashboardButton from "../../components/UI/dashboard-button/dashboard-button.component";
-import RecentActivityStack from "../../components/UI/recent-activity-stack/recent-activity-stack.component";
-import { alertsData, recentActivityStackData } from "../../constants";
-import FullScreenDialog from "../../components/recent-activity/recent-activity.component";
 import AlertsGrid from "../../components/alerts-grid/alerts-grid.component";
+import FullScreenDialog from "../../components/recent-activity/recent-activity.component";
+import DashboardButton from "../../components/UI/dashboard-button/dashboard-button.component";
+import InfoCard from "../../components/UI/info-cards/info-card-static/info-card-static.component";
+import RecentActivityStack from "../../components/UI/recent-activity-stack/recent-activity-stack.component";
+import InfoCardExpandable from "../../components/UI/info-cards/info-card-expandable/info-card-expandable.component";
 import SaleComparisonOverviewChart from "../../components/UI/charts/sales-comparison-overwiev-chart/sales-comparison-overview-chart.component";
+
+import { alertsData, recentActivityData, recentActivityStackData } from "../../constants";
 import { scoChartData, scoChartLegend } from "../../constants/chartsData";
+import { DashboardContainer, DashboardHeader, PageTitle, SubTitle } from "./dashboard.styles";
 
 const Dashboard = () => {
   const [isRecentActivityOpen, setIsRecentActivityOpen] = useState(false);
@@ -78,7 +78,7 @@ const Dashboard = () => {
 
           <Zoom in={true} timeout={1500}>
             <Grid item xs={3}>
-              <RecentActivityStack data={recentActivityStackData} setOpen={handleRecentActivityOpen} />
+              <RecentActivityStack data={recentActivityData} setOpen={handleRecentActivityOpen} />
             </Grid>
           </Zoom>
 

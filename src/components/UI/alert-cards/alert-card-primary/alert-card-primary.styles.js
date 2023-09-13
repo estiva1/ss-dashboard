@@ -1,5 +1,5 @@
-import { Box, Button } from "@mui/material";
 import { styled } from "styled-components";
+import { Box, Button } from "@mui/material";
 
 export const AlertCardPrimaryBody = styled(Box)`
   position: relative; // for ripple effect
@@ -14,6 +14,52 @@ export const AlertCardPrimaryBody = styled(Box)`
   border-radius: 16px !important;
   background-image: linear-gradient(135deg, #1565d8 0%, #090c53 100%);
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.12) !important;
+
+  &::before {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    bottom: -90px;
+    right: -135px;
+    animation: zoom-in-zoom-out 5.18s ease infinite; 
+    overflow: hidden;
+  }
+
+  &::before {
+    background-color: #a0b4d31b;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    top: -175px;
+    right: -150px;
+    animation: zoom-in-zoom-out 4.35s ease infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+  }
+
+  &::after {
+    background-color: #a0b4d31b;
+  }
+
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.1, 1.1);
+      background-color: #a0b4d344;
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
 
   &:hover {
     background: linear-gradient(135deg, #2670d8 0%, #0b0e67 100%);

@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 export const RecentActivityStackBody = styled(Box)`
   display: flex;
@@ -45,27 +45,40 @@ export const ItemImage = styled.img`
   aspect-ratio: attr(width) / attr(height);
 `;
 
-export const PrimaryText = styled(Typography)`
-  color: #4e5969 !important;
-  font-family: Titillium Web !important;
-  font-size: 0.875rem !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-  line-height: 1rem !important;
-  margin: 0 !important;
+const applyClampStyles = (props) => {
+  if (props.clamp) {
+    return css`
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+    `;
+  }
+  return "";
+};
+
+export const PrimaryText = styled.h3`
+  color: #4e5969;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.125rem;
+  margin: 0;
 `;
 
 export const PrimaryTextHighlighted = styled(PrimaryText)`
-  color: #1565d8 !important;
+  color: #1565d8;
+  ${applyClampStyles}
 `;
 
-export const SecondaryText = styled(Typography)`
+export const SmallText = styled.h4`
   color: ${({ difference }) => (difference > 0 ? "#009C34" : difference < 0 ? "#CF0909" : "#4e5969")};
-  font-family: Titillium Web !important;
-  font-size: 0.625rem !important;
-  font-style: normal !important;
-  font-weight: 600 !important;
-  line-height: 0.625rem !important;
-  display: inline-flex;
-  margin: 0 !important;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 0.625rem;
+  margin: 0;
+
+  ${applyClampStyles}
 `;

@@ -1,7 +1,16 @@
 import React, { forwardRef } from "react";
 
+import { Stack } from "@mui/material";
 import Slide from "@mui/material/Slide";
 import Dialog from "@mui/material/Dialog";
+import IconButton from "@mui/material/IconButton";
+
+import { Container, Content, Heading } from "./recent-activity.styles";
+import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
+import CustomizedSearchField from "../UI/searchfield/searchfield.component";
+import Dropdown from "../UI/dropdown/dropdown.component";
+import RecentActivityTable from "../UI/recent-activity-table/recent-activity-table.component";
+import { recentActivityData, trackingInfoData } from "../../constants";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -10,7 +19,26 @@ const Transition = forwardRef(function Transition(props, ref) {
 const FullScreenDialog = ({ open, onClose }) => {
   return (
     <Dialog fullScreen open={open} onClose={onClose} TransitionComponent={Transition}>
-      1
+      <Container>
+        <Stack direction="row" spacing="12px" alignItems="center" marginBottom="30px">
+          <IconButton aria-label="back" onClick={onClose}>
+            <KeyboardBackspaceRoundedIcon sx={{ color: "#1565D8" }} />
+          </IconButton>
+          <Heading>Recent Activity</Heading>
+        </Stack>
+
+        <Content>
+          <Stack direction="row" spacing="10px" alignItems="center">
+            <div style={{ width: "300px" }}>
+              <CustomizedSearchField placeholder="Search by SKU, Title, ASIN" />
+            </div>
+            <div style={{ width: "200px" }}>
+              <Dropdown placeholder="Filter by Status" disabled />
+            </div>
+          </Stack>
+          <RecentActivityTable data={recentActivityData}/>
+        </Content>
+      </Container>
     </Dialog>
   );
 };

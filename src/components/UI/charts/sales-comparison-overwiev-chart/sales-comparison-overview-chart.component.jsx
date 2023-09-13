@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+
 import { Stack } from "@mui/material";
+import CustomDatePicker from "../../datePicker/date-picker.component";
 import { CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, Area, AreaChart } from "recharts";
+
 import {
   ChartContainer,
   ChartHeader,
@@ -13,7 +16,6 @@ import {
   SideLegendContainer,
   TooltipContainer,
 } from "./sales-comparison-overview-chart.styles";
-import CustomDatePicker from "../../datePicker/date-picker.component";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {

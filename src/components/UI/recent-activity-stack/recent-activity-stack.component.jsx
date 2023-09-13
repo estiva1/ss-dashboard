@@ -1,8 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import { Grid, Stack, Tooltip } from "@mui/material";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import FlakyOutlinedIcon from "@mui/icons-material/FlakyOutlined";
 import testProductImage from "../../../assets/product-image-for-table-example.png";
 
 import {
@@ -13,45 +12,67 @@ import {
   RecentActivityStackBody,
   RecentItemContainer,
   SecondaryText,
+  SmallText,
 } from "./recent-activity-stack.styles";
 import DashboardButton from "../dashboard-button/dashboard-button.component";
 
 const RecentActivityStack = ({ data, setOpen }) => {
+  const recentActivityItems = data.map(({ id, itemName, sellersSku, sku, changeDate, status, price, changeReason }) => {
+    const { date, time } = changeDate;
+    const { currentPrice, newPrice } = price;
+
+    return {
+      id,
+      itemName,
+      sellersSku,
+      sku,
+      date,
+      time,
+      status,
+      currentPrice,
+      newPrice,
+      changeReason,
+    };
+  });
   return (
     <RecentActivityStackBody>
       <Stack direction="column" gap="24px">
         <CardName>Recent Activity</CardName>
 
         <Stack direction="column" spacing="16px">
-          {data.map((item, index) => (
-            <RecentItemContainer key={`item-${index}`}>
+          {recentActivityItems.map(({ id, itemName, sellersSku, currentPrice, newPrice }) => (
+            <RecentItemContainer key={`item-${id}`}>
               <Grid container spacing="20px">
                 <Grid item xs={8}>
                   <Stack direction="row" spacing="8px">
                     <ItemImage src={testProductImage} style={{ width: "34px", height: "34px" }} loading="lazy" />
-                    <Stack direction="column" gap="8px" overflow="hidden">
-                      <Tooltip title={item.itemName} placement="top">
-                        <PrimaryTextHighlighted noWrap>{item.itemName}</PrimaryTextHighlighted>
+                    <Stack direction="column" gap="8px">
+                      <Tooltip title={itemName} placement="top">
+                        <PrimaryTextHighlighted clamp>{itemName}</PrimaryTextHighlighted>
                       </Tooltip>
 
-                      <Tooltip title={item.sku} placement="top">
-                        <SecondaryText noWrap sx={{ color: "#979797" }}>
-                          Seller's SKU:&nbsp;<SecondaryText sx={{ color: "#4E5969" }}>{item.sku}</SecondaryText>
-                        </SecondaryText>
-                      </Tooltip>
+                      <Stack direction="row">
+                        <SmallText style={{ color: "#979797", whiteSpace: "nowrap" }}>Seller's SKU:&nbsp;</SmallText>
+                        <Tooltip title={sellersSku} placement="top">
+                          <SmallText clamp style={{ color: "#4E5969" }}>
+                            {sellersSku}
+                          </SmallText>
+                        </Tooltip>
+                      </Stack>
                     </Stack>
                   </Stack>
                 </Grid>
 
                 <Grid item xs={4}>
                   <Stack direction="column" spacing="4px" alignItems="flex-end">
-                    <PrimaryText>${item.price}</PrimaryText>
-
+                    <PrimaryText>${currentPrice}</PrimaryText>
                     <Stack direction="row" alignItems="center">
-                      <SecondaryText difference={item.difference}>{Number(item.difference).toFixed(2)}</SecondaryText>
-                      {item.difference > 0 ? (
+                      <SmallText difference={Number(newPrice) - Number(currentPrice)}>
+                        {(Number(newPrice) - Number(currentPrice)).toFixed(2)}
+                      </SmallText>
+                      {Number(newPrice) - Number(currentPrice) > 0 ? (
                         <ArrowDropUpIcon fontSize="1rem" color="success" />
-                      ) : item.difference < 0 ? (
+                      ) : Number(newPrice) - Number(currentPrice) < 0 ? (
                         <ArrowDropUpIcon
                           fontSize="1rem"
                           color="error"

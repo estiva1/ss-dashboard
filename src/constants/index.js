@@ -50,40 +50,101 @@ export const alertsData = [
   },
 ];
 
-export const recentActivityStackData = [
+export const recentActivityData = [
   {
     id: 1,
-    itemName: "Bubba 24 Oz Envy Chocolate",
-    sku: "SKU-WM-24566712345",
-    price: "58.10",
-    difference: "0.25",
+    itemName: "Bubba 24 Oz Envy Chocolate Bubba 24 Oz Envy Chocolate",
+    sellersSku: "SKU-WM-24566712345-24566712345",
+    sku: "24",
+    changeDate: {
+      date: "23 Dec, 2022",
+      time: "02:36:06",
+    },
+    status: "pending",
+    price: {
+      currentPrice: "58.10",
+      newPrice: "59.15",
+    },
+    changeReason: "Lorem Ipsum",
   },
   {
     id: 2,
     itemName: "Bubba 24 Oz Envy Chocolate",
-    sku: "SKU-WM-24566712345",
-    price: "236.45",
-    difference: "0",
+    sellersSku: "SKU-WM-24566712345",
+    sku: "24",
+    changeDate: {
+      date: "23 Dec, 2022",
+      time: "02:36:06",
+    },
+    status: "Pending",
+    price: {
+      currentPrice: "56.10",
+      newPrice: "59.15",
+    },
+    changeReason: "Lorem Ipsum",
   },
   {
     id: 3,
     itemName: "Bubba 24 Oz Envy Chocolate",
-    sku: "SKU-WM-24566712345",
-    price: "25.70",
-    difference: "-0.80",
+    sellersSku: "SKU-WM-24566712345",
+    sku: "24",
+    changeDate: {
+      date: "23 Dec, 2022",
+      time: "02:36:06",
+    },
+    status: "success",
+    price: {
+      currentPrice: "60.10",
+      newPrice: "59.15",
+    },
+    changeReason: "Lorem Ipsum",
   },
   {
     id: 4,
     itemName: "Bubba 24 Oz Envy Chocolate",
-    sku: "SKU-WM-24566712345",
-    price: "58.10",
-    difference: "1.15",
+    sellersSku: "SKU-WM-24566712345",
+    sku: "24",
+    changeDate: {
+      date: "23 Dec, 2022",
+      time: "02:36:06",
+    },
+    status: "error",
+    price: {
+      currentPrice: "105.257",
+      newPrice: "58.10",
+    },
+    changeReason: "Lorem Ipsum",
   },
   {
     id: 5,
     itemName: "Bubba 24 Oz Envy Chocolate",
-    sku: "SKU-WM-24566712345",
-    price: "55.23",
-    difference: "0.42",
+    sellersSku: "SKU-WM-24566712345",
+    sku: "24",
+    changeDate: {
+      date: "23 Dec, 2022",
+      time: "02:36:06",
+    },
+    status: "success",
+    price: {
+      currentPrice: "58.10",
+      newPrice: "58.10",
+    },
+    changeReason: "Lorem Ipsum",
+  },
+  {
+    id: 6,
+    itemName: "Bubba 24 Oz Envy Chocolate",
+    sellersSku: "SKU-WM-24566712345",
+    sku: "24",
+    changeDate: {
+      date: "23 Dec, 2022",
+      time: "02:36:06",
+    },
+    status: "pending",
+    price: {
+      currentPrice: "58.10",
+      newPrice: "59.15",
+    },
+    changeReason: "Lorem Ipsum",
   },
 ];
