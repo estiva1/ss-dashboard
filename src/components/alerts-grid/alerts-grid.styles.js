@@ -14,6 +14,7 @@ export const NoAlertsContainer = styled.div`
   flex-direction: row;
   margin: 16px 80px;
   align-items: center;
+  gap: 10px;
   justify-content: space-between;
 `;
 

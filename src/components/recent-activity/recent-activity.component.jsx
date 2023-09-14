@@ -53,7 +53,7 @@ const FullScreenDialog = ({ open, onClose }) => {
           </Stack>
           <RecentActivityTable
             data={recentActivityData}
-            itemFilter={itemFilter}
+            itemFilter={itemFilter.toLowerCase()}
             selectedStatus={selectedStatus}
           />
         </Content>

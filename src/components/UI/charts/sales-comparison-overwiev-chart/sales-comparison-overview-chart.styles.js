@@ -24,9 +24,10 @@ export const ChartContainer = styled(Box)`
 
 export const ChartHeader = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   align-self: stretch;
+  justify-content: space-between;
+  height: 60px;
   margin-bottom: 20px;
 `;
 
@@ -48,12 +49,31 @@ export const LabelText = styled.h4`
   margin: 0;
 `;
 
+export const TooltipLabel = styled(LabelText)`
+  color: #979797;
+`;
+
+export const TooltipValue = styled.h4`
+  color: #4e5969;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+  margin: 0;
+`;
+
 export const SideLegendContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  align-items: flex-end;
+`;
+
+export const LegendItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   min-width: max-content;
-  height: auto;
+  gap: 24px;
 `;
 
 export const LegendItem = styled.div`
@@ -90,7 +110,7 @@ export const TooltipContainer = styled.div`
   width: max-content;
   height: max-content;
   padding: 16px;
-  border-radius: 16px !important;
+  border-radius: 16px;
   background-color: #fff;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.12);
 `;

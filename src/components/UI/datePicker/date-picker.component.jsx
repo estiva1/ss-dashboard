@@ -8,7 +8,7 @@ import { StyledDatePicker } from "./date-picker.styles";
 const CustomDatePicker = ({ value, onChange }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <StyledDatePicker value={value} onChange={onChange} />
+      <StyledDatePicker value={value} onChange={onChange} views={["month", "year"]} />
     </LocalizationProvider>
   );
 };

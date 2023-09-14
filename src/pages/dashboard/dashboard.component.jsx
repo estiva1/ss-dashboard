@@ -14,10 +14,12 @@ import DashboardButton from "../../components/UI/dashboard-button/dashboard-butt
 import InfoCard from "../../components/UI/info-cards/info-card-static/info-card-static.component";
 import RecentActivityStack from "../../components/UI/recent-activity-stack/recent-activity-stack.component";
 import InfoCardExpandable from "../../components/UI/info-cards/info-card-expandable/info-card-expandable.component";
+import StrategiesOverwievChart from "../../components/UI/charts/strategies-overwiev-chart/strategies-overwiev-chart.component";
 import SaleComparisonOverviewChart from "../../components/UI/charts/sales-comparison-overwiev-chart/sales-comparison-overview-chart.component";
 
-import { alertsData, recentActivityData, recentActivityStackData } from "../../constants";
-import { scoChartData, scoChartLegend } from "../../constants/chartsData";
+import { alertsData, recentActivityData } from "../../constants";
+import { scoChartData, scoChartLegend, soChartData, soChartLegend } from "../../constants/chartsData";
+
 import { DashboardContainer, DashboardHeader, PageTitle, SubTitle } from "./dashboard.styles";
 
 const Dashboard = () => {
@@ -79,6 +81,12 @@ const Dashboard = () => {
           <Zoom in={true} timeout={1500}>
             <Grid item xs={3}>
               <RecentActivityStack data={recentActivityData} setOpen={handleRecentActivityOpen} />
+            </Grid>
+          </Zoom>
+
+          <Zoom in={true}>
+            <Grid item xs={6}>
+              <StrategiesOverwievChart data={soChartData} legend={soChartLegend} />
             </Grid>
           </Zoom>
 

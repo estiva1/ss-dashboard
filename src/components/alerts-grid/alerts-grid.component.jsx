@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { Grid, Stack, Zoom } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
 import AlertCardPrimary from "../UI/alert-cards/alert-card-primary/alert-card-primary.component";
 import AlertCardRegular from "../UI/alert-cards/alert-card-regular/alert-card-regular.component";
 import { Description, Header, NoAlertsContainer, NoAlertsImage, Title } from "./alerts-grid.styles";
-import { AnimatePresence, motion } from "framer-motion";
 
 const AlertsGrid = ({ alertsData }) => {
   const [primaryAlerts, setPrimaryAlerts] = useState(alertsData.filter((alert) => alert.alertType === "primary"));
@@ -27,13 +27,24 @@ const AlertsGrid = ({ alertsData }) => {
           {primaryAlerts.slice(0, 1).map((alert) => (
             <Zoom in={true}>
               <Grid item xs={4.7}>
-                <AlertCardPrimary
-                  alertLabel="Need Review: Alert"
-                  alertDescription={alert.alertDescription}
-                  value={alert.value}
-                  alertId={alert.alertId}
-                  dismiss={() => handleDismiss(alert.alertId, "primary")}
-                />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={alert.alertId}
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -30, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <AlertCardPrimary
+                      //key={alert.alertId}
+                      alertLabel="Need Review: Alert"
+                      alertDescription={alert.alertDescription}
+                      value={alert.value}
+                      alertId={alert.alertId}
+                      dismiss={() => handleDismiss(alert.alertId, "primary")}
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </Grid>
             </Zoom>
           ))}
@@ -41,15 +52,25 @@ const AlertsGrid = ({ alertsData }) => {
           <Grid item xs={7.3}>
             <Grid container spacing="20px">
               {regularAlerts.slice(0, 4).map((alert, index) => (
-                <Zoom in={true} timeout={index === 0 ? 500 : 1000} key={alert.alertId}>
+                <Zoom in={true} timeout={index === 0 ? 500 : 1000}>
                   <Grid item xs={6}>
-                    <AlertCardRegular
-                      alertLabel={alert.alertLabel}
-                      alertDescription={alert.alertDescription}
-                      value={alert.value}
-                      alertId={alert.alertId}
-                      dismiss={() => handleDismiss(alert.alertId, "regular")}
-                    />
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={alert.alertId}
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -30, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <AlertCardRegular
+                          alertLabel={alert.alertLabel}
+                          alertDescription={alert.alertDescription}
+                          value={alert.value}
+                          alertId={alert.alertId}
+                          dismiss={() => handleDismiss(alert.alertId, "regular")}
+                        />
+                      </motion.div>
+                    </AnimatePresence>
                   </Grid>
                 </Zoom>
               ))}
@@ -63,13 +84,23 @@ const AlertsGrid = ({ alertsData }) => {
           {primaryAlerts.slice(0, 1).map((alert) => (
             <Zoom in={true}>
               <Grid item xs={4.7}>
-                <AlertCardPrimary
-                  alertLabel="Need Review: Alert"
-                  alertDescription={alert.alertDescription}
-                  value={alert.value}
-                  alertId={alert.alertId}
-                  dismiss={() => handleDismiss(alert.alertId, "primary")}
-                />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={alert.alertId}
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -30, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <AlertCardPrimary
+                      alertLabel="Need Review: Alert"
+                      alertDescription={alert.alertDescription}
+                      value={alert.value}
+                      alertId={alert.alertId}
+                      dismiss={() => handleDismiss(alert.alertId, "primary")}
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </Grid>
             </Zoom>
           ))}
@@ -81,15 +112,25 @@ const AlertsGrid = ({ alertsData }) => {
           <Grid item xs={7.3}>
             <Grid container spacing="20px">
               {regularAlerts.slice(0, 4).map((alert, index) => (
-                <Zoom in={true} timeout={index === 0 ? 500 : 1000} key={alert.alertId}>
+                <Zoom in={true} timeout={index === 0 ? 500 : 1000}>
                   <Grid item xs={6}>
-                    <AlertCardRegular
-                      alertLabel={alert.alertLabel}
-                      alertDescription={alert.alertDescription}
-                      value={alert.value}
-                      alertId={alert.alertId}
-                      dismiss={() => handleDismiss(alert.alertId, "regular")}
-                    />
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={alert.alertId}
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -30, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <AlertCardRegular
+                          alertLabel={alert.alertLabel}
+                          alertDescription={alert.alertDescription}
+                          value={alert.value}
+                          alertId={alert.alertId}
+                          dismiss={() => handleDismiss(alert.alertId, "regular")}
+                        />
+                      </motion.div>
+                    </AnimatePresence>
                   </Grid>
                 </Zoom>
               ))}
@@ -107,7 +148,9 @@ const AlertsGrid = ({ alertsData }) => {
             transition={{ duration: 0.2 }}
           >
             <NoAlertsContainer>
-              <NoAlertsImage />
+              <div>
+                <NoAlertsImage />
+              </div>
               <Stack direction="column" gap="24px">
                 <Title>Great Job!</Title>
                 <Description>
