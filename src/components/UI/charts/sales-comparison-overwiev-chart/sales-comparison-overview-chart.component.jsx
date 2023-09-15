@@ -183,7 +183,7 @@ const options = {
 const SalesComparisonOverviewChart = ({ data, legend }) => {
   const [chartData, setChartData] = useState(data);
   const [currentDate, setCurrentDate] = useState(dayjs());
-  const [compareToDate, setCompareToDate] = useState(dayjs());
+  const [compareToDate, setCompareToDate] = useState();
 
   const legendItems = legend.map(({ markerColor, itemName, primaryValue, secondaryValue }) => {
     return {
@@ -243,6 +243,11 @@ const SalesComparisonOverviewChart = ({ data, legend }) => {
     };
     setChartData(updatedChartData);
   };
+
+  useEffect(() => {
+    //const newLabels = ["Label1", "Label2", "Label3"];
+    updateLabels(generateWeeks(dayjs()));
+  }, []);
 
   const handleCurrentDataChange = (newCurrentData) => {
     setCurrentDate(dayjs(newCurrentData));
