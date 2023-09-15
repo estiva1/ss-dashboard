@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
 import { styled as mStyled } from "@mui/material/styles";
-import { TableCell, TableContainer, TableRow, Typography, tableCellClasses } from "@mui/material";
+import { TableCell, TableContainer, TableRow, tableCellClasses } from "@mui/material";
 
 export const StyledTableContainer = mStyled(TableContainer)(() => ({
   border: "none",
   borderRadius: "4px",
   boxShadow: "none",
-  maxHeight: "250px",
+  maxHeight: "450px",
   "&::-webkit-scrollbar": {
     width: " 0.4em",
   },
@@ -45,8 +45,9 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
 }));
 
 export const StyledTableRow = mStyled(TableRow)(() => ({
-  backgroundColor: "#FFF",
-  height: "42px",
+  ":hover": {
+    backgroundColor: "#F8FAFB",
+  },
 }));
 
 const applyClampStyles = (props) => {

@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { css, styled } from "styled-components";
 
 export const RecentActivityStackBody = styled(Box)`

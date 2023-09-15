@@ -1,23 +1,20 @@
-import { InputBase, Paper } from "@mui/material";
-import { styled as mStyled } from "@mui/material/styles";
+import { styled } from "styled-components";
+import { InputBase } from "@mui/material";
 
-export const StyledPaper = mStyled(Paper)(() => ({
-  height: "36px",
-  paddingLeft: "12px",
-  display: "flex",
-  alignItems: "center",
-  boxShadow: "none",
-  border: "1px solid #E6E6E6",
-}));
+export const StyledPaper = styled.div`
+  height: 36px;
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: none;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+`;
 
-export const StyledInput = mStyled(InputBase)(() => ({
-  fontFamily: "Titillium Web",
-  fontSize: "0.875rem",
-  fontStyle: "normal",
-  fontWeight: 400,
-  lineHeight: "1rem",
-
-  "& input::placeholder": {
-    color: "black",
-  },
-}));
+export const StyledInput = styled(InputBase)`
+  font-family: "Titillium Web" !important;
+  font-size: 0.875rem !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 1rem !important;
+`;

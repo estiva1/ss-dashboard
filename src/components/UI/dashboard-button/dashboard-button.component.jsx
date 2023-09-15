@@ -1,4 +1,6 @@
 import React, { useLayoutEffect, useState } from "react";
+import { Stack } from "@mui/material";
+
 import {
   ArrowRight,
   ButtonContent,
@@ -7,7 +9,6 @@ import {
   DashboardButtonContainer,
   RippleContainer,
 } from "./dashboard-button.styles";
-import { Stack } from "@mui/material";
 
 const useDebouncedRippleCleanUp = (rippleCount, duration, cleanUpFunction) => {
   useLayoutEffect(() => {

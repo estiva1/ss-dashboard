@@ -6,6 +6,7 @@ import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TablePagination from "@mui/material/TablePagination";
 import { Stack, TableHead, TableRow, Tooltip } from "@mui/material";
+import CustomizedProgressBar from "../progress-bar/progress-bar.component";
 
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import testProductImage from "../../../assets/product-image-for-table-example.png";
@@ -18,9 +19,9 @@ import {
   SecondaryText,
   SmallText,
   StyledTableCell,
+  StyledTableContainer,
   StyledTableRow,
 } from "./recent-activity-table.styles";
-import CustomizedProgressBar from "../progress-bar/progress-bar.component";
 
 const generateHighlightedText = (text, filterValue) => {
   const lowerText = text.toLowerCase();
@@ -87,7 +88,7 @@ const RecentActivityTable = ({ data, itemFilter, selectedStatus }) => {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <TableContainer>
+      <StyledTableContainer>
         <Table sx={{ minWidth: 800 }} aria-labelledby="recentActivityTable">
           <TableHead>
             <TableRow>
@@ -115,7 +116,9 @@ const RecentActivityTable = ({ data, itemFilter, selectedStatus }) => {
                       <ItemImage src={testProductImage} style={{ width: "34px", height: "34px" }} loading="lazy" />
                       <Stack direction="column" gap="8px">
                         <Tooltip title={itemName} placement="top">
-                          <PrimaryTextHighlighted clamp>{generateHighlightedText(itemName, itemFilter)}</PrimaryTextHighlighted>
+                          <PrimaryTextHighlighted clamp>
+                            {generateHighlightedText(itemName, itemFilter)}
+                          </PrimaryTextHighlighted>
                         </Tooltip>
 
                         <Stack direction="row">
@@ -186,14 +189,15 @@ const RecentActivityTable = ({ data, itemFilter, selectedStatus }) => {
               <StyledTableRow
                 sx={{
                   height: 83 * emptyRows, //the most heightish cell - with prices (5.1875rem)
+                  ":hover": {
+                    backgroundColor: "#FFF",
+                  },
                 }}
-              >
-                <StyledTableCell colSpan={6} />
-              </StyledTableRow>
+              ></StyledTableRow>
             )}
           </TableBody>
         </Table>
-      </TableContainer>
+      </StyledTableContainer>
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"

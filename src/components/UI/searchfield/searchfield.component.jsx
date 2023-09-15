@@ -7,7 +7,7 @@ import { StyledInput, StyledPaper } from "./searchfield.styles";
 
 const CustomizedSearchField = ({ placeholder = "Search...", ariaLabel, value, onChange, disabled }) => {
   return (
-    <StyledPaper component="form">
+    <StyledPaper>
       <StyledInput
         sx={{ flex: 1 }}
         placeholder={placeholder}

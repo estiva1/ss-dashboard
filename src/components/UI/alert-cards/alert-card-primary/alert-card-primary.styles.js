@@ -7,7 +7,7 @@ export const AlertCardPrimaryBody = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 220px;
+  //min-height: 220px;
   height: 100%;
   width: 100%;
   padding: 20px;

@@ -4,13 +4,14 @@ import { Stack } from "@mui/material";
 import Slide from "@mui/material/Slide";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
-
-import { Container, Content, Heading } from "./recent-activity.styles";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
-import CustomizedSearchField from "../UI/searchfield/searchfield.component";
+
 import Dropdown from "../UI/dropdown/dropdown.component";
+import CustomizedSearchField from "../UI/searchfield/searchfield.component";
 import RecentActivityTable from "../UI/recent-activity-table/recent-activity-table.component";
+
 import { recentActivityData } from "../../constants";
+import { Container, Content, Heading } from "./recent-activity.styles";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -22,7 +23,6 @@ const FullScreenDialog = ({ open, onClose }) => {
   const dropdownTestOptions = ["success", "pending", "error"];
 
   const handleItemFilterChange = (event) => setItemFilter(event.target.value);
-
 
   return (
     <Dialog fullScreen open={open} onClose={onClose} TransitionComponent={Transition}>

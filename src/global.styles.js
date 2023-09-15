@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 body {
-    //margin: 0;
+    margin: 0;
     padding: 24px;
     font-family: 'Titillium Web', sans-serif !important;
     -webkit-font-smoothing: antialiased;

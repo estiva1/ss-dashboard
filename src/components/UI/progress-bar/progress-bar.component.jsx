@@ -1,33 +1,24 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgress";
-
-const BorderLinearProgress = styled(LinearProgress)(() => ({
-  height: 10,
-  borderRadius: 5,
-  [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: "#F0F0F0",
-  },
-  [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 5,
-  },
-}));
+import { linearProgressClasses } from "@mui/material";
+import { BorderLinearProgress } from "./progress-bar.styles";
 
 const CustomizedProgressBar = ({ status }) => {
-  let color = "";
-  let value = 0;
 
-  if (status === "pending") {
-    color = "#FFCB00";
-    value = 50;
-  } else if (status === "error") {
-    color = "#CF0909";
-    value = 100;
-  } else if (status === "success") {
-    color = "#009C34";
-    value = 100;
-  }
+  const COLORS = {
+    pending: "#FFCB00",
+    error: "#CF0909",
+    success: "#009C34",
+  };
+
+  const VALUES = {
+    pending: 50,
+    error: 100,
+    success: 100,
+  };
+
+  const color = COLORS[status] || "";
+  const value = VALUES[status] || 0;
 
   return (
     <Box sx={{ flexGrow: 1 }}>

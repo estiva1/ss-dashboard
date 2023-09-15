@@ -96,7 +96,8 @@ const Dashboard = () => {
             </Grid>
           </Zoom>
         </Grid>
-        <FullScreenDialog open={isRecentActivityOpen} onClose={handleRecentActivityClose}></FullScreenDialog>
+
+        <FullScreenDialog open={isRecentActivityOpen} onClose={handleRecentActivityClose} />
       </DashboardContainer>
     </>
   );

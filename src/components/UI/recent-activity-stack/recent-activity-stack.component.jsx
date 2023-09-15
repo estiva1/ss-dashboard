@@ -2,6 +2,7 @@ import React from "react";
 
 import { Grid, Stack, Tooltip } from "@mui/material";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import DashboardButton from "../dashboard-button/dashboard-button.component";
 import testProductImage from "../../../assets/product-image-for-table-example.png";
 
 import {
@@ -13,7 +14,6 @@ import {
   RecentItemContainer,
   SmallText,
 } from "./recent-activity-stack.styles";
-import DashboardButton from "../dashboard-button/dashboard-button.component";
 
 const RecentActivityStack = ({ data, setOpen }) => {
   const recentActivityItems = data
