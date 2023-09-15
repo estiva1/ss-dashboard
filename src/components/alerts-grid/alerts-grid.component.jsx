@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Grid, Slide, Zoom, Stack } from "@mui/material";
+import { Grid, Zoom, Stack } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 
 import AlertCardPrimary from "../UI/alert-cards/alert-card-primary/alert-card-primary.component";
@@ -47,11 +47,11 @@ const AlertsGrid = ({ alertsData }) => {
     <Fragment>
       <Header>Alerts</Header>
       {primaryAlerts.length > 0 || regularAlerts.length > 0 ? (
-        <Grid container spacing={2}>
+        <Grid container spacing="20px">
           {renderAlerts(primaryAlerts.slice(0, 1), "primary")}
 
           <Grid item xs={7.3}>
-            <Grid container spacing={2}>
+            <Grid container spacing="20px">
               {renderAlerts(regularAlerts.slice(0, 4), "regular")}
             </Grid>
           </Grid>
